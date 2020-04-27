@@ -1,0 +1,10 @@
+spring:
+  datasource:    driverClassName: com.mysql.jdbc.Driver
+    url: jdbc:mysql://project-scheduler-db:3306/projectscheduler
+    username: root
+    password: root
+  jpa:
+    hibernate:      ddl-auto: update
+    generate-ddl: true
+    show-sql: true
+server:  port: 8080
