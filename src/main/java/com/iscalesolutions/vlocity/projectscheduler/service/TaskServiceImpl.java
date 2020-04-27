@@ -179,7 +179,7 @@ public class TaskServiceImpl implements TaskService {
 					t = taskMap.get(t.getTaskId());
 				}
 				endDate.set(t.getEndDate());
-				if (endDate.get().isAfter(maxDate.get())) {
+				if (endDate.get().isAfter(maxDate.get()) || endDate.get().isEqual(maxDate.get()) ) {
 					maxDate.set(endDate.get().plusDays(1));
 				}
 				iterator.set(t);
