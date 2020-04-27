@@ -126,27 +126,7 @@ public class TaskServiceImpl implements TaskService {
 		}
 		return dependentTasksId;
 	}
-
-	@Override
-	public ProjectView addUpdateTaskToProject(ProjectView project, TaskView task) {
-
-		List<TaskView> list = Optional.ofNullable(project.getTaskViews()).orElse(new ArrayList<TaskView>());
-		if (!containsTaskIdInList(list, task))
-			list.add(task);
-		else {
-			list.parallelStream().forEach(t -> {
-				if (t.getTaskId().equals(task.getTaskId()))
-					t = task;
-			});
-		}
-		project.setTaskViews(list);
-		return project;
-	}
-
-	private boolean containsTaskIdInList(List<TaskView> list, TaskView task) {
-		return list.parallelStream().anyMatch(t -> t.getTaskId().equals(task.getTaskId()));
-	}
-
+	
 	@Override
 	public ProjectView calculateStartEndDates(ProjectView project) throws Exception {
 		if (!Optional.of(project.getStartDate()).isPresent())

@@ -9,8 +9,6 @@ import com.iscalesolutions.vlocity.projectscheduler.view.TaskView;
 
 public interface TaskService {
 
-	ProjectView addUpdateTaskToProject(ProjectView project, TaskView task);
-
 	ProjectView calculateStartEndDates(ProjectView project) throws Exception;
 	
 	List<TaskView> provideTasksInChronologicalOrder(ProjectView project) throws Exception;
